@@ -13,7 +13,7 @@ const ui = {
                     <div class="pensamento-conteudo">${pensamento.conteudo}</div>
                     <div class="pensamento-autoria">${pensamento.autoria}</div>
                     </li>`
-            });
+            })
         }
         catch {
             alert('Erro ao renderizar pensamentos')
