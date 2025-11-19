@@ -16,13 +16,18 @@ const ui = {
         listaPensamentos.innerHTML = ""
 
         try {
-            const pensamentos = await api.buscarPensamentos()
-            pensamentos.forEach(ui.adicionarPensamentoNaLista)
-        }
-        catch {
-            alert('Erro ao renderizar pensamentos')
-        }
-    },
+      const pensamentos = await api.buscarPensamentos()
+      pensamentos.forEach(ui.adicionarPensamentoNaLista)
+        if (pensamentos.length === 0) {
+        mensagemVazia.style.display = "block";
+      } else {
+        mensagemVazia.style.display = "none";
+      }  
+    }
+    catch {
+      alert('Erro ao renderizar pensamentos')
+    }
+  },
     
     adicionarPensamentoNaLista(pensamento) {
         const listaPensamentos = document.getElementById("lista-pensamentos")
