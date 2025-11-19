@@ -1,5 +1,6 @@
-
+![AnimaçãoCRUD](https://github.com/user-attachments/assets/f21f98ae-a581-4fee-b96b-ccee473bd1ad)
 # Memoteca
+
 
 Memoteca é um aplicativo organizador de pensamentos e frases que permite cadastrar, listar, editar e deletar pensamentos, incluindo informações como conteúdo e autoria.
 
