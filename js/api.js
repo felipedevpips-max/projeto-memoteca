@@ -1,7 +1,10 @@
+const URL_BASE = "http://localhost:3000" //deixando mais dinamico
+
+
 const api = { //api fake para interação
     async buscarPensamentos() {
         try {
-            const response = await fetch('http://localhost:3000/pensamentos')
+            const response = await fetch(`${URL_BASE}/pensamentos`)
             return await response.json()
         }
          catch {
@@ -12,7 +15,7 @@ const api = { //api fake para interação
 
      async salvarPensamento(pensamento) {
         try {
-            const response = await fetch('http://localhost:3000/pensamentos', {//requisição
+            const response = await fetch(`${URL_BASE}/pensamentos`, {//requisição
                 method: 'POST',
                 headers: { //cabeçalho da requisição 
                     "Content-Type": "application/json"
@@ -29,7 +32,7 @@ const api = { //api fake para interação
 
      async buscarPensamentoId(id) { //usando id poruqe ele e um identificador unico
         try {
-            const response = await fetch(`http://localhost:3000/pensamentos/${id}`)
+            const response = await fetch(`${URL_BASE}/pensamentos/${id}`)
             return await response.json()
         }
          catch {
@@ -40,7 +43,7 @@ const api = { //api fake para interação
 
     async editarPensamento(pensamento) { //concatenando pensamento com o id
         try {
-            const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {//requisição
+            const response = await fetch(`${URL_BASE}/pensamentos/${pensamento.id}`, {//requisição
                 method: 'PUT',
                 headers: { //cabeçalho da requisição 
                     "Content-Type": "application/json"
@@ -57,7 +60,7 @@ const api = { //api fake para interação
 
        async excluirPensamento(id) {
     try {
-      const response = await fetch(`http://localhost:3000/pensamentos/${id}`, {
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`, {
         method: "DELETE"
       })
     }
