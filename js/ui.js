@@ -36,6 +36,10 @@ const ui = {
         li.appendChild(pensamentoConteudo)
         li.appendChild(pensamentoAutoria)
         listaPensamentos.appendChild(li)
+    },
+
+    limparFormulario() {
+        document.getElementById("pensamento-form").reset()
     }
 }
 
