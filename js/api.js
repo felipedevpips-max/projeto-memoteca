@@ -1,4 +1,4 @@
-const URL_BASE = 'https://projeto-memoteca.onrender.com'
+const URL_BASE = "https://projeto-memoteca.onrender.com"
 
 const api = { //api fake para interação
     async buscarPensamentos() {
@@ -54,7 +54,6 @@ const api = { //api fake para interação
       throw error
     }
   }
-
 
 }
 
