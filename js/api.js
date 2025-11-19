@@ -1,11 +1,10 @@
-const URL_BASE = "http://localhost:3000" //deixando mais dinamico
-
+const URL_BASE = 'http://localhost:3000'
 
 const api = { //api fake para interação
     async buscarPensamentos() {
         try {
-            const response = await axios.get(`${URL_BASE}/pensamentos`)
-            return await response.data
+            const response = await fetch(`${URL_BASE}/pensamentos`)
+            return await response.json()
         }
          catch {
             alert('Erro ao buscar pensamentos')
@@ -15,8 +14,14 @@ const api = { //api fake para interação
 
      async salvarPensamento(pensamento) {
         try {
-            const response = await axios.post(`${URL_BASE}/pensamentos`, pensamento)
-            return await response.data
+            const response = await fetch(`${URL_BASE}/pensamentos`, {//requisição
+                method: 'POST',
+                headers: { //cabeçalho da requisição 
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(pensamento)//conteudo passado
+            })
+            return await response.json()
         }
          catch {
             alert('Erro ao buscar pensamentos')
@@ -26,8 +31,8 @@ const api = { //api fake para interação
 
      async buscarPensamentoId(id) { //usando id poruqe ele e um identificador unico
         try {
-            const response = await axios.get(`${URL_BASE}/pensamentos/${id}`)
-            return await response.data
+            const response = await fetch(`${URL_BASE}/pensamentos/${id}`)
+            return await response.json()
         }
          catch {
             alert('Erro ao buscar pensamentos')
@@ -37,7 +42,13 @@ const api = { //api fake para interação
 
     async editarPensamento(pensamento) { //concatenando pensamento com o id
         try {
-            const response = await axios.put(`${URL_BASE}/pensamentos/${pensamento.id}`, pensamento)
+            const response = await fetch(`${URL_BASE}/pensamentos/${pensamento.id}`, {//requisição
+                method: 'PUT',
+                headers: { //cabeçalho da requisição 
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(pensamento)//conteudo passado
+            })
             return await response.json()
         }
          catch {
@@ -48,7 +59,9 @@ const api = { //api fake para interação
 
        async excluirPensamento(id) {
     try {
-      const response = await axios.delete(`${URL_BASE}/pensamentos/${id}`)
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`, {
+        method: "DELETE"
+      })
     }
     catch {
       alert('Erro ao excluir um pensamento')
