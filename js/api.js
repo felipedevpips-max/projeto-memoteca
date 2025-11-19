@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:3000'
+const URL_BASE = 'https://projeto-memoteca.onrender.com'
 
 const api = { //api fake para interação
     async buscarPensamentos() {
